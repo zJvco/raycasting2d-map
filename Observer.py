@@ -37,9 +37,19 @@ class Observer:
                 ox = self.rect.x + self.size / 2
                 oy = self.rect.y + self.size / 2
 
+                # Pontos de todas as vertices do retângulo
+                px1 = tile.x
+                py1 = tile.y
+                px2 = tile.x
+                py2 = tile.y + tile.size
+                px3 = tile.x + tile.size
+                py3 = tile.y + tile.size
+                px4 = tile.x + tile.size
+                py4 = tile.y
+
                 dt = ray.calc_distance(tx, ty, ox, oy)
 
-                vertex = ray.cast(window, tile)
+                vertex = [ray.cast(px1, py1, px2, py2), ray.cast(px2, py2, px3, py3), ray.cast(px3, py3, px4, py4), ray.cast(px4, py4, px1, py1)]
                 dist_vt_record = math.inf
                 vt_closest = None
                 for pt in vertex:

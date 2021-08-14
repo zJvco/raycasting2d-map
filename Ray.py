@@ -28,7 +28,13 @@ class Ray:
         d = (x1 - x2) ** 2 + (y1 - y2) ** 2
         return d
 
-    def intersection(self, x1, y1, x2, y2, x3, y3, x4, y4):
+    def cast(self, x1, y1, x2, y2):
+        # Ponto de origen e de direção do raio
+        x3 = self.x
+        y3 = self.y
+        x4 = self.dir_x
+        y4 = self.dir_y
+
         # Calcular a direção entre as duas retas (linhas), se for 0, elas são paralelas, ou seja, nunca iram se encontrar.
         den = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4)
         if den == 0:
@@ -43,27 +49,6 @@ class Ray:
             return ptx, pty
         else:
             return
-
-    def cast(self, window, t):
-        # Tile point n1, n2 ... n
-        px1 = t.x
-        py1 = t.y
-        px2 = t.x
-        py2 = t.y + t.size
-        px3 = t.x + t.size
-        py3 = t.y + t.size
-        px4 = t.x + t.size
-        py4 = t.y
-
-        # Ray points
-        rx1 = self.x
-        ry1 = self.y
-        rx2 = self.dir_x
-        ry2 = self.dir_y
-
-        pts = [self.intersection(px1, py1, px2, py2, rx1, ry1, rx2, ry2), self.intersection(px2, py2, px3, py3, rx1, ry1, rx2, ry2), self.intersection(px3, py3, px4, py4, rx1, ry1, rx2, ry2), self.intersection(px4, py4, px1, py1, rx1, ry1, rx2, ry2)]
-
-        return pts
 
     def draw(self, window, ptx, pty):
         pygame.draw.aaline(window, self.color, (self.x, self.y), (ptx, pty))
