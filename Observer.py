@@ -29,11 +29,11 @@ class Observer:
             dist_tl_record = math.inf
             pt_closest = None
             for tile in tiles:
-                # Deixar o bloco alinhado no seu eixo.
+                # Posição do bloco no seu eixo de simetria.
                 tx = tile.x + tile.size / 2
                 ty = tile.y + tile.size / 2
 
-                # Posição do observador no seu eixo.
+                # Posição do observador no seu eixo de simetria.
                 ox = self.rect.x + self.size / 2
                 oy = self.rect.y + self.size / 2
 
@@ -66,6 +66,7 @@ class Observer:
                     dist_tl_record = min(dt, dist_tl_record)
 
             if pt_closest:
+                pygame.draw.ellipse(window, (0, 255, 0), (pt_closest[0] - 5, pt_closest[1] - 5, 10, 10))
                 ray.draw(window, pt_closest[0], pt_closest[1])
 
     def draw(self, window):

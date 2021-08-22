@@ -50,5 +50,8 @@ class Ray:
         else:
             return
 
+    def polygons(self):
+        pass
+
     def draw(self, window, ptx, pty):
         pygame.draw.aaline(window, self.color, (self.x, self.y), (ptx, pty))

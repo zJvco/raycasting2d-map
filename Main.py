@@ -49,8 +49,12 @@ while running:
             sys.exit()
 
         if event.type == pygame.KEYDOWN:
+            # Iniciar
             if event.key == pygame.K_RETURN:
                 start = True
+            # Editar
+            if event.key == pygame.K_f:
+                start = False
 
     if start:
         observer.set_x(mx)

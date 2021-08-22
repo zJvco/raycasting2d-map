@@ -1,0 +1,7 @@
+Calcular a distancia de um bloco para o outro
+
+quero que só apareça o raio no bloco que tiver mais perto do observador
+
+Fazer os polygonos para o efeito de luz e sombra.
+
+Colocar ponto para cada vertice do retangulo
