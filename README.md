@@ -1,0 +1,1 @@
+RayCasting em python, isso não é um jogo, apenas um modelo de mapa 2d para a construção do mesmo. Mais para frente irei construir um jogo usando essa técnica.
